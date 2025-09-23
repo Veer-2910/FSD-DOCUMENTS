@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tax Form</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif; background: #eef1f4;
+      display: flex; justify-content: center; align-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: #fff; padding: 2rem; border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%; max-width: 360px;
+    }
+    h2 { text-align: center; margin-bottom: 1rem; }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    input {
+      width: 100%; padding: 0.6rem; margin-top: 0.3rem;
+      border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;
+    }
+    button {
+      width: 100%; padding: 0.7rem; margin-top: 1.5rem;
+      background: #4CAF50; color: white; border: none;
+      border-radius: 6px; font-size: 1rem; cursor: pointer;
+    }
+    button:hover { background: #45a049; }
+    .error { color: #d9534f; text-align: center; margin-top: 1rem; }
+  </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Enter Your Income</h2>
+      <form action="/calculate" method="POST">
+        <label>Income Source 1</label>
+        <input type="number" step="0.01" name="source1" required>
+        <label>Income Source 2</label>
+        <input type="number" step="0.01" name="source2" required>
+        <button type="submit">Calculate Total</button>
+        <% if (error) { %><p class="error"><%= error %></p><% } %>
+      </form>
+    </div>
+  </body>
+</html>
