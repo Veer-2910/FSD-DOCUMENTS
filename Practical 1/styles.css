@@ -1,0 +1,17 @@
+body {
+  margin-top: 100px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.But {
+  font-size: 20px;
+  padding: 15px;
+  margin-right: 20px;
+  border-radius: 10px;
+  cursor:pointer;
+}
+
+.results {
+  font-size: 25px;
+}

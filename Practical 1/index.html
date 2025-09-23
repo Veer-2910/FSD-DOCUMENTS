@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Counter</title>
+  </head>
+  <body>
+
+    <h1>Vote for your favorite language</h1>
+
+    <button class="But" onclick="vote('JavaScript')">JavaScript</button>
+    <button class="But" onclick="vote('Python')">Python</button>
+    <button class="But" onclick="vote('Java')">Java</button>
+    <button class="But" onclick="vote('Reset')">Reset</button>
+
+    <div class="results">
+      <p>JavaScript: <span id="JavaScript">0</span></p>
+      <p>Python: <span id="Python">0</span></p>
+      <p>Java: <span id="Java">0</span></p>
+    </div>
+    <script src="server.js">
+
+  </script>
+  </body>
+</html>
