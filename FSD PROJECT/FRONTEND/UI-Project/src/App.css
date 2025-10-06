@@ -1,0 +1,6 @@
+/* .App {
+  background: linear-gradient(135deg, #f8f9fa 0%, #64abf2 100%);
+} */
+html {
+  scroll-behavior: auto !important;
+}

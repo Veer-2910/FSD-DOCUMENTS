@@ -1,0 +1,226 @@
+/* Vehicle page specific styles */
+html, body {
+  scroll-behavior: auto !important;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100vw; /* instead of 100% */
+
+}
+.vehicles-page {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.vehicles-hero {
+  height: 40vh;
+  background: url('https://images.unsplash.com/photo-1563191848-b01d0258f1f9?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+  background-size: cover;
+  display: block;        /* Do NOT center vertically */
+  position: relative;
+  margin: 0;
+  padding: 0;
+  /* width: 100%; */
+}
+
+
+.category {
+  background-color: #052c65 !important;
+  color: white !important;
+}
+
+.category:hover {
+  background-color: #357ABD !important;
+  transition: all 0.3s ease;
+  color: #000 !important;
+}
+
+.vehicles-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  color: #052c65;
+  margin: 0;
+}
+
+/* Vehicle card styles */
+.vehicle-card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.vehicle-card .card-img-top {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.vehicle-info {
+  padding: 1.5rem;
+}
+
+.vehicle-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 0.5rem;
+}
+
+.vehicle-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.vehicle-detail-item {
+  display: flex;
+  align-items: center;
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.vehicle-detail-item i {
+  width: 20px;
+  margin-right: 0.5rem;
+  color: var(--primary-blue);
+}
+
+.vehicle-price {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.vehicle-price .amount {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.vehicle-price .period {
+  font-size: 0.9rem;
+  color: var(--light-text);
+  margin-left: 0.25rem;
+}
+
+.vehicle-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-available {
+  background-color: var(--success-green);
+  color: white;
+}
+
+.status-booked {
+  background-color: var(--danger-red);
+  color: white;
+}
+
+.book-button {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.book-button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+}
+
+.book-button:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Vehicle list section */
+.vehicle-list-section {
+  background-color: #f8f9fa;
+  padding: 3rem 0;
+}
+
+.vehicle-list-header {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.vehicle-list-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+}
+
+.vehicle-list-title i {
+  margin-right: 0.75rem;
+}
+
+.back-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  border: 2px solid var(--primary-blue);
+  background-color: transparent;
+  color: var(--primary-blue);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: var(--primary-blue);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+.no-vehicles {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--light-text);
+}
+
+.no-vehicles i {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: var(--muted-gray);
+}
+
+.no-vehicles h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark-text);
+}

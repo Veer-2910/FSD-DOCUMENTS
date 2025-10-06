@@ -1,0 +1,192 @@
+:root {
+  --primary-blue: #052c65;
+  --light-orange: #FF9F43;
+  --soft-white: #FAFAFA;
+  --muted-gray: #6C757D;
+  --success-green: #28A745;
+  --danger-red: #DC3545;
+  --warning-yellow: #FFC107;
+  --dark-text: #2C3E50;
+  --light-text: #6C757D;
+  --border-light: #E9ECEF;
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+#root {
+  background-color: #21406e2b;   /* Your desired color */
+  min-height: 100vh;           /* Ensures full page coverage */               
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--soft-white);
+  color: var(--dark-text);
+  line-height: 1.6;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+/* Custom Button Styles */
+.btn-primary-custom {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  background-color: #357ABD;
+  border-color: #357ABD;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-orange-custom {
+  background-color: var(--light-orange);
+  border-color: var(--light-orange);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-orange-custom:hover {
+  background-color: #E8823A;
+  border-color: #E8823A;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Card Styles */
+.card-custom {
+  border: none;
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card-custom:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card-custom:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Badge Styles */
+.badge-available {
+  background-color: var(--success-green);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.badge-booked {
+  background-color: var(--danger-red);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.badge-active {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* Form Styles */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+}
+
+/* Modal Styles */
+.modal-content {
+  border-radius: 12px;
+  border: none;
+  box-shadow: var(--shadow-medium);
+}
+
+.modal-header {
+  background-color: var(--primary-blue);
+  color: white;
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+/* Toast Styles */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1055;
+}
+
+.toast {
+  border-radius: 8px;
+  box-shadow: var(--shadow-medium);
+}
+
+/* Utility Classes */
+.text-primary-custom {
+  color: var(--primary-blue) !important;
+}
+
+.text-orange-custom {
+  color: var(--light-orange) !important;
+}
+
+.bg-soft-white {
+  background-color: var(--soft-white) !important;
+}
+
+.border-radius-custom {
+  border-radius: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 150px;
+  }
+  
+  .btn-primary-custom, .btn-orange-custom {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
