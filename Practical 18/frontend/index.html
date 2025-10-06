@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Notes App</title>
+    <style>
+    body { font-family: Arial; padding: 20px; }
+    input, textarea { display: block; margin: 10px 0; width: 300px; }
+    button { margin: 5px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+  </style>
+  </head>
+  <body>
+    <h1>Notes App</h1>
+
+    <div>
+      <input id="title" placeholder="Title">
+      <textarea id="content" placeholder="Content" rows="4"></textarea>
+      <button onclick="addNote()">Add Note</button>
+      <button onclick="updateNote()" id="updateBtn" style="display:none;">Update
+        Note</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Timestamp</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="notesTable"></tbody>
+    </table>
+
+    <script>
+const API = "http://localhost:5000/api/notes";
+let editingId = null;
+
+// Fetch all notes
+async function fetchNotes() {
+  const res = await fetch(API);
+  const notes = await res.json();
+  const table = document.getElementById("notesTable");
+  table.innerHTML = "";
+  notes.forEach(note => {
+    table.innerHTML += `
+      <tr>
+        <td>${note.title}</td>
+        <td>${note.content}</td>
+        <td>${new Date(note.timestamp).toLocaleString()}</td>
+        <td>
+          <button onclick="editNote('${note._id}')">Edit</button>
+          <button onclick="deleteNote('${note._id}')">Delete</button>
+        </td>
+      </tr>
+    `;
+  });
+}
+
+// Add note
+async function addNote() {
+  const note = {
+    title: document.getElementById("title").value,
+    content: document.getElementById("content").value,
+  };
+  if(!note.title || !note.content) { alert("Fill both fields"); return; }
+
+  await fetch(API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(note)
+  });
+  clearForm();
+  fetchNotes();
+}
+
+// Edit note
+async function editNote(id) {
+  const res = await fetch(`${API}/${id}`);
+  const note = await res.json();
+  document.getElementById("title").value = note.title;
+  document.getElementById("content").value = note.content;
+  editingId = id;
+  document.getElementById("updateBtn").style.display = "inline";
+}
+
+// Update note
+async function updateNote() {
+  const note = {
+    title: document.getElementById("title").value,
+    content: document.getElementById("content").value,
+  };
+  await fetch(`${API}/${editingId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(note)
+  });
+  clearForm();
+  fetchNotes();
+  document.getElementById("updateBtn").style.display = "none";
+  editingId = null;
+}
+
+// Delete note
+async function deleteNote(id) {
+  if(!confirm("Are you sure?")) return;
+  await fetch(`${API}/${id}`, { method: "DELETE" });
+  fetchNotes();
+}
+
+// Clear form
+function clearForm() {
+  document.getElementById("title").value = "";
+  document.getElementById("content").value = "";
+}
+
+// Initial fetch
+fetchNotes();
+</script>
+  </body>
+</html>
